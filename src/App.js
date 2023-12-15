@@ -71,6 +71,8 @@ export default function App() {
           throw new Error("Something went wrong with fetching movies");
 
         const data = await res.json();
+
+        //check if search query can be found and throw error if not
         if (data.Response === "False") throw new Error("Movie not found");
 
         setMovies(data.Search);
@@ -97,7 +99,6 @@ export default function App() {
           {!isLoading && !error && <MovieList movies={movies} />}
           {error && <ErrorMessage message={error} />}
         </Box>
-        {/* <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box> */}
 
         <Box>
           <WatchedSummary watched={watched} />
