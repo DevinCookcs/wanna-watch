@@ -261,7 +261,7 @@ function MovieDetails({ selectedId, onCloseMovie }) {
       }
       getMovieDetails();
     },
-    [movie]
+    [selectedId]
   );
 
   return (
